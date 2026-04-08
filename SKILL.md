@@ -253,4 +253,4 @@ xelatex handout.tex
 xelatex handout.tex  # 编译两次以获得正确页码引用
 ```
 
-输出 PDF 文件保存到 `/home/z/my-project/download/` 目录。
+输出 PDF 文件保存到用户指定目录，默认为当前工作目录。
