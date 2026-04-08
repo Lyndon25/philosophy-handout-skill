@@ -1,0 +1,15 @@
+{
+  "name": "philosophy-handout",
+  "version": "1.0.0",
+  "description": "从哲学论文原文出发制作高质量学术报告handout的专业技能，输出LaTeX源文件",
+  "author": "Skill Creator",
+  "tags": ["philosophy", "academic", "latex", "handout", "analytic-philosophy"],
+  "dependencies": {
+    "latex": "xelatex",
+    "packages": ["ctex", "amsmath", "amssymb", "booktabs", "tcolorbox", "tikz", "enumitem", "tabularx"]
+  },
+  "trigger_keywords": [
+    "handout", "读书报告", "论文汇报", "presentation handout",
+    "哲学论文", "philosophy paper", "学术报告", "论文展示"
+  ]
+}

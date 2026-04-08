@@ -1,0 +1,226 @@
+% ============================================================
+% 哲学论文学术报告 Handout LaTeX 模板 (Markdown极简版)
+% 编译方式: xelatex (需编译两次以获得正确交叉引用)
+% ============================================================
+\documentclass[10pt, a4paper]{article}
+
+% -------------------- 基础宏包 --------------------
+\usepackage[UTF8]{ctex}                    % 中文支持
+\usepackage[margin=2cm]{geometry}          % 页边距
+\usepackage{amsmath, amssymb, amsthm}      % 数学与逻辑符号
+\usepackage{booktabs}                       % 专业表格线
+\usepackage{tabularx}                       % 弹性宽度表格
+\usepackage{enumitem}                       % 自定义列表
+\usepackage{hyperref}                       % 超链接
+\usepackage{tikz}                           % 绘图
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{titlesec}                       % 标题格式
+\usepackage{fancyhdr}                       % 页眉页脚
+\usepackage{multicol}                       % 多栏排版
+\usepackage{setspace}                       % 行距
+
+% -------------------- 极简排版设置 --------------------
+\setstretch{1.15}                          % 行距
+\setlength{\parskip}{0.4em}                % 段落间距
+\setlength{\parindent}{0pt}                % 首行缩进
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+
+% -------------------- 列表设置 --------------------
+\setlist[itemize]{leftmargin=1.5em, itemsep=2pt, parsep=0pt, topsep=3pt}
+\setlist[enumerate]{leftmargin=2em, itemsep=2pt, parsep=0pt, topsep=3pt}
+
+% -------------------- 页眉页脚 --------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\textit{\thetitle}}
+\fancyhead[R]{\footnotesize\theauthor}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+% -------------------- 标题格式 (极简) --------------------
+\titleformat{\section}{\large\bfseries\sffamily}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.4em}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+\titlespacing*{\subsubsection}{0pt}{0.6em}{0.2em}
+
+% -------------------- 超链接 (黑白) --------------------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  bookmarks=true,
+  pdfstartview=FitH
+}
+
+% -------------------- 自定义命令 --------------------
+
+% 英文术语标注
+\newcommand{\engterm}[1]{\textup{\textsf{\small(#1)}}}
+
+% 原文页码标注
+\newcommand{\pagemark}[1]{\textsuperscript{\scriptsize[#1]}}
+
+% 高亮文本
+\newcommand{\highlight}[1]{\textbf{#1}}
+\newcommand{\coreclaim}[1]{\underline{\textbf{#1}}}
+
+% 脚注式评论标记
+\newcommand{\remark}[1]{\textit{\small[#1]}}
+
+% 双语分隔符
+\newcommand{\zh}[1]{\\{\small\textmd{#1}}}
+
+% 分隔线
+\newcommand{\secsep}{\par\vspace{0.3em}\hrule\vspace{0.3em}\par}
+
+% 定义环境（纯文本风格）
+\newenvironment{deflist}{
+  \begin{description}[style=nextline, leftmargin=1em, itemsep=0.3em]
+}{
+  \end{description}
+}
+
+% -------------------- 文档信息 --------------------
+\title{}
+\author{}
+\date{}
+
+% ============================================================
+%  以下为 Handout 正文模板 — 请替换为实际内容
+% ============================================================
+
+\begin{document}
+
+% ==================== ENGLISH VERSION ====================
+
+\begin{center}
+  {\Large\bfseries\sffamily Paper Title}\\[3pt]
+  {\normalsize Author Name (Year) · \textit{Journal/Source}}\\[4pt]
+  Presenter: Name · Course: Course Name · Date: YYYY.MM.DD
+\end{center}
+
+\vspace{0.3em}
+\hrule
+\vspace{0.5em}
+
+\section*{Thesis}
+
+\textbf{Core claim:} One-sentence summary of the main thesis.\pagemark{page}
+
+Brief elaboration of the core claim in 2-3 sentences.
+
+\section*{Background}
+
+Context and theoretical background. Key assumptions challenged:
+\begin{itemize}
+  \item Assumption 1: Description\pagemark{page}
+  \item Assumption 2: Description\pagemark{page}
+\end{itemize}
+
+\section*{Main Arguments}
+
+\subsection*{Argument 1: Name}
+
+\textbf{Setup:} Description of the thought experiment or scenario.\pagemark{page}
+
+\textbf{Formalization:}
+\begin{align*}
+  &\text{P1: Premise 1} \\
+  &\text{P2: Premise 2} \\
+  &\therefore \text{C: Conclusion}
+\end{align*}
+
+\textbf{Evaluation:} Brief assessment of argument strength.
+
+\section*{Key Concepts}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Term} & \textbf{Definition} & \textbf{Ref} \\
+\midrule
+Term 1 & Definition & \pagemark{page} \\
+Term 2 & Definition & \pagemark{page} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Commentary}
+
+Assessment of the argument:\\[0.3em]
+\begin{tabular}{@{}p{3.5cm}p{10cm}@{}}
+\textbf{Strengths:} & List main strengths \\[0.2em]
+\textbf{Weaknesses:} & List potential objections \\[0.2em]
+\textbf{Significance:} & Theoretical impact
+\end{tabular}
+
+\newpage
+
+% ==================== CHINESE VERSION ====================
+
+\begin{center}
+  {\Large\bfseries\sffamily 论文标题}\\[3pt]
+  {\normalsize 作者名 (年份) · \textit{期刊/来源}}\\[4pt]
+  汇报人：姓名 · 课程：课程名 · 日期：YYYY.MM.DD
+\end{center}
+
+\vspace{0.3em}
+\hrule
+\vspace{0.5em}
+
+\section*{核心论题}
+
+\textbf{核心主张：}用一句话概括中心论点。\pagemark{页码}
+
+用2-3句话简要阐述核心主张。
+
+\section*{理论背景}
+
+背景和理论语境。被挑战的关键假设：
+\begin{itemize}
+  \item 假设1：描述\pagemark{页码}
+  \item 假设2：描述\pagemark{页码}
+\end{itemize}
+
+\section*{核心论证}
+
+\subsection*{论证1：名称}
+
+\textbf{设置：}思想实验或场景的描述。\pagemark{页码}
+
+\textbf{形式化：}
+\begin{align*}
+  &\text{P1: 前提1} \\
+  &\text{P2: 前提2} \\
+  &\therefore \text{C: 结论}
+\end{align*}
+
+\textbf{评价：}对论证强度的简要评估。
+
+\section*{关键概念}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{术语} & \textbf{定义} & \textbf{页码} \\
+\midrule
+术语1 & 定义 & \pagemark{页码} \\
+术语2 & 定义 & \pagemark{页码} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{评论}
+
+对论证的评价：\\[0.3em]
+\begin{tabular}{@{}p{3.5cm}p{10cm}@{}}
+\textbf{优点：} & 列出主要优点 \\[0.2em]
+\textbf{弱点：} & 列出可能的异议 \\[0.2em]
+\textbf{意义：} & 理论影响
+\end{tabular}
+
+\end{document}
