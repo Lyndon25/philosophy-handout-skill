@@ -25,6 +25,74 @@ philosophy-handout/
     └── argument-patterns.md # 分析哲学常见论证模式
 ```
 
+## 安装说明
+
+### 方法一：通过 Claude Code 安装
+
+1. **打开 Claude Code**
+2. **添加 Skill**：
+   ```
+   /skill add https://github.com/Lyndon25/philosophy-handout-skill
+   ```
+   或者手动编辑 `~/.claude/skills.json` 添加：
+   ```json
+   {
+     "skills": [
+       {
+         "name": "philosophy-handout",
+         "url": "https://github.com/Lyndon25/philosophy-handout-skill"
+       }
+     ]
+   }
+   ```
+
+### 方法二：本地安装
+
+1. **克隆仓库**：
+   ```bash
+   git clone https://github.com/Lyndon25/philosophy-handout-skill.git
+   cd philosophy-handout-skill
+   ```
+
+2. **复制到 Claude Skills 目录**：
+   - **Windows**: `%APPDATA%\Claude\skills\`
+   - **macOS**: `~/Library/Application Support/Claude/skills/`
+   - **Linux**: `~/.config/claude/skills/`
+
+### 方法三：通过 Claude 设置界面
+
+1. 打开 Claude Code
+2. 输入 `/settings` 或点击设置图标
+3. 找到 "Skills" 或 "技能" 选项
+4. 点击 "Add Skill" / "添加技能"
+5. 输入 URL: `https://github.com/Lyndon25/philosophy-handout-skill`
+
+## 依赖要求
+
+### 必需软件
+
+- **XeLaTeX**：用于编译 LaTeX 源文件（通过 TeX Live 或 MiKTeX 安装）
+
+**安装方法：**
+
+- **Windows**: 安装 [MiKTeX](https://miktex.org/) 或 [TeX Live](https://tug.org/texlive/)
+- **macOS**: `brew install --cask mactex`
+- **Linux**: `sudo apt-get install texlive-xetex texlive-lang-chinese`
+
+### 必需宏包
+
+本 Skill 使用的 LaTeX 宏包包括：
+
+- `ctex` - 中文支持
+- `amsmath`, `amssymb`, `amsthm` - 数学与逻辑符号
+- `booktabs` - 专业表格线
+- `tikz` - 绘图（论证图）
+- `enumitem` - 自定义列表
+- `tabularx` - 弹性宽度表格
+- 其他辅助宏包
+
+**注意**：大多数宏包会随 XeLaTeX 自动安装，如有缺失可通过包管理器安装。
+
 ## 使用方法
 
 ### 触发方式
@@ -46,24 +114,6 @@ philosophy-handout/
 5. **LaTeX 编写实施**：基于模板编写 handout
 6. **论证图绘制**：使用 TikZ 绘制论证结构图
 7. **质量检查与完善**：逐项检查结构完整性、形式化、写作质量
-
-## 依赖要求
-
-### 必需软件
-
-- **XeLaTeX**：用于编译 LaTeX 源文件（通过 TeX Live 或 MiKTeX 安装）
-
-### 必需宏包
-
-本 Skill 使用的 LaTeX 宏包包括：
-
-- `ctex` - 中文支持
-- `amsmath`, `amssymb`, `amsthm` - 数学与逻辑符号
-- `booktabs` - 专业表格线
-- `tikz` - 绘图（论证图）
-- `enumitem` - 自定义列表
-- `tabularx` - 弹性宽度表格
-- 其他辅助宏包
 
 ## 输出格式
 
@@ -87,6 +137,17 @@ xelatex handout.tex
 - `references/style-guide.md` - 风格指南（排版、表格、论证图）
 - `references/argument-patterns.md` - 分析哲学常见论证模式
 - `references/latex-template.tex` - LaTeX 模板文件
+
+## 常见问题
+
+### Q: 安装后 Claude 没有触发 skill？
+A: 确保输入中包含触发关键词，如 "handout"、"读书报告"、"哲学论文" 等。
+
+### Q: LaTeX 编译失败？
+A: 确保安装了 XeLaTeX 和 ctex 宏包。Windows 用户推荐安装 MiKTeX。
+
+### Q: 如何更新 skill？
+A: 重新执行安装步骤，或进入 skill 目录执行 `git pull`。
 
 ## 版本信息
 
